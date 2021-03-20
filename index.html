@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="./assets/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Coding Quiz | Test Your Skills</title>
-    <link rel="shortcut icon" type="img/svg" href="#">
+    <link rel="shortcut icon" type="img/svg" href="./assets/images/mortarboard.svg">
 </head>
 <body>
+    <!-- This is nav section that displays the scores and timer -->
     <header>
-
+        <nav>
+            <p class="highscores">View Highscores</p>
+            <p>Time: <span>0</span></p>
+        </nav>
     </header>
+    <!-- This is the main section of the page that has changing section -->
     <main>
-
+        <section class="start-page">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will incure a time penalty of ten seconds!</p>
+            <button>Start Quiz</button>
+        </section>
     </main>
-<script src="script.js"></script>
+<script src="./assets/js/script.js"></script>
 </body>
 </html>

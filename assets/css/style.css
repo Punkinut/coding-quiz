@@ -1,0 +1,76 @@
+/* The root selector that stores all the variables */
+:root {
+    --dark-gray: #333333;
+    --font: 'Rubik', sans-serif;
+}
+
+/* Default styling for the body */
+body {
+    color: var(--dark-gray);
+    font-family: var(--font);
+}
+
+/* Overall Styling for buttons */
+button {
+    border: none;
+    font-weight: 300;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
+
+button:hover{
+    background-color: white;
+    box-shadow: 5px 5px var(--dark-gray);
+}
+
+/* Default styling for the navigation */
+nav {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 85%;
+    margin: auto;
+    text-transform: uppercase;
+    font-weight:600;
+}
+
+/* Make the mouse a pointer for the highscores class */
+nav .highscores {
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+
+/* Changes the appearence of the highscore class when hovered on */
+nav .highscores:hover {
+    opacity: 50%;
+    border-bottom: 2px solid var(--dark-gray);
+}
+
+/* Makes the highscore class italic when clicked */
+nav .highscores:active {
+    font-style: italic;
+}
+
+/* Basic styling for start page */
+.start-page {
+    /* border: 1px solid black; */
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.start-page h1 {
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+
+.start-page p {
+    line-height: 1.6em;
+    margin-bottom: 40px;
+}
