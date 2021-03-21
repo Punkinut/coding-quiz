@@ -10,7 +10,7 @@ var time = document.querySelector(".timer");
 var rightAnswer = document.querySelector(".right");
 var wrongAnswer = document.querySelector(".wrong");
 var scoreRight = document.querySelector(".best-score");
-var count = 30
+var count = 60
 var scoreTrackerWins = 0;
 var scoreTrackerLose = 0;
 
@@ -26,19 +26,19 @@ function finalScore () {
 
 // The countdown timer that runs
 function timer () {
-    time.innerHTML = 30;
+    time.innerHTML = count;
     var timeInterval = setInterval(function(){
         count--
         time.innerHTML = count
         if(count === 0 || count < 0) {
-            clearInterval(timeInterval)
             time.innerHTML = 0;
+            clearInterval(timeInterval)
             pageTwo.style.display = "none";
             pageThree.style.display = "none";
             pageFour.style.display = "none";
             pageFive.style.display = "none";
             pageSix.style.display = "none";
-            pageSeven.style.display = "block";
+            pageSeven.style.display = "none";
         }
     }, 1000)
 }
