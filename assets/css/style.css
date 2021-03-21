@@ -109,6 +109,57 @@ nav .highscores:active {
     margin-bottom: 20px;
 }
 
+.page-four {
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    display: none;
+}
+
+.page-four button {
+    margin: 5px;
+}
+
+.page-four p {
+    margin-bottom: 20px;
+}
+
+.page-five {
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    display: none;
+}
+
+.page-five button {
+    margin: 5px;
+}
+
+.page-five p {
+    margin-bottom: 20px;
+}
+
+.page-six {
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    display: none;
+}
+
+.page-six button {
+    margin: 5px;
+}
+
+.page-six p {
+    margin-bottom: 20px;
+}
+
 .right {
     position: fixed;
     left: 45%;
