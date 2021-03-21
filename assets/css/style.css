@@ -83,3 +83,46 @@ nav .highscores:active {
     text-align: center;
     display: none;
 }
+
+.page-two button {
+    margin: 5px;
+}
+
+.page-two p {
+    margin-bottom: 20px;
+}
+
+.page-three {
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    display: none;
+}
+
+.page-three button {
+    margin: 5px;
+}
+
+.page-three p {
+    margin-bottom: 20px;
+}
+
+.right {
+    position: fixed;
+    left: 45%;
+    top: 50%;
+    font-size: 30px;
+    font-weight: 900;
+    display: none;
+}
+
+.wrong {
+    position: fixed;
+    left: 45%;
+    top: 50%;
+    font-size: 30px;
+    font-weight: 900;
+    display: none;
+}

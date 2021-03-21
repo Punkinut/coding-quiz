@@ -1,7 +1,10 @@
 var startButton = document.querySelector(".start-button")
 var startPage = document.querySelector(".start-page")
 var pageTwo = document.querySelector(".page-two")
+var pageThree = document.querySelector(".page-three")
 var time = document.querySelector(".timer")
+var rightAnswer = document.querySelector(".right")
+var wrongAnswer = document.querySelector(".wrong")
 var count = 60
 
 // The countdown timer that runs
@@ -17,19 +20,68 @@ function timer () {
     }, 1000)
 }
 
+// The main switcher for the starting page
 function mainpageSwitcher () {
     startPage.style.display = "none";
     pageTwo.style.display = "block";
 }
 
-// Need to do matching for each page
+// The function that displays if the answer is correct
+function correctDisplay () {
+    var answerCount = 0;
+    var answerInterval = setInterval(function () {
+        answerCount++
+        if(answerCount === 3) {
+            rightAnswer.style.display = "none";
+            clearInterval(answerInterval)
+        } else {
+            rightAnswer.style.display = "block";
+        }
+    }, 500)
+}
+
+// The function that displays when the answer is incorrect
+function incorrectDisplay () {
+    var incanswerCount = 0;
+    var incanswerInterval = setInterval(function () {
+        incanswerCount++
+        if(incanswerCount === 3) {
+            wrongAnswer.style.display = "none";
+            clearInterval(incanswerInterval)
+        } else {
+            wrongAnswer.style.display = "block";
+        }
+    }, 500)
+}
+
+// Page Two Switcher
 function pageTwoSwitcher () {
     pageTwo.addEventListener("click", function(event) {
         var element = event.target
         if(element.matches(".incorrect")){
-            console.log("This is wrong")
+            incorrectDisplay()
+            pageTwo.style.display = "none";
+            pageThree.style.display = "block";
+            count = count - 10;
         } else {
-            console.log("This is right")
+            correctDisplay()
+            pageTwo.style.display = "none";
+            pageThree.style.display = "block";
+        }
+    })
+}
+
+// Page Three Switcher
+function pageThreeSwitcher () {
+    pageThree.addEventListener("click", function(event) {
+        var elementTwo = event.target
+        if(elementTwo.matches(".incorrect")){
+            incorrectDisplay()
+            pageThree.style.display = "none";
+            count = count - 10;
+        } else {
+            correctDisplay()
+            pageThree.style.display = "none";
         }
     })
 }
@@ -39,6 +91,7 @@ function startQuiz () {
     startButton.addEventListener("click", function() {
         mainpageSwitcher();
         pageTwoSwitcher();
+        pageThreeSwitcher();
         timer();
     })
 }
