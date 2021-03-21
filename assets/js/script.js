@@ -17,6 +17,7 @@ var nameEl = document.querySelector("#name");
 var submitEl = document.querySelector("#submit");
 var highscoreClick = document.querySelector(".highscores");
 var backButton = document.querySelector(".go-back")
+var containerOfScores = document.querySelector(".scoreContainer");
 var count = 50
 var scoreTrackerWins = 0;
 var scoreTrackerLose = 0;
@@ -204,7 +205,6 @@ function submitScore() {
             window.alert("Please put in a name!")
         } else {
             results = nameEl.value;
-            console.log(results)
             addToLeaderboard();
             pageSeven.style.display = "none";
             pageNine.style.display = "block";
@@ -232,11 +232,18 @@ backButton.addEventListener("click", function() {
     pageNine.style.display = "none"
     startPage.style.display = "block";
     count = 50;
+    yallPercentage;
+    scoreTrackerLose = 0;
+    scoreTrackerWins = 0;
 })
 
 function addToLeaderboard () {
     localStorage.setItem("Name", results);
     localStorage.setItem("Percentage", yallPercentage);
+    const newItem = document.createElement("p");
+    newItem.classList.add("nameRecord");
+    newItem.innerHTML = localStorage.getItem("Name") + ": " + localStorage.getItem("Percentage");
+    containerOfScores.appendChild(newItem);
 }
 
 // This is the main function that starts the quiz
