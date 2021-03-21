@@ -11,6 +11,18 @@ var rightAnswer = document.querySelector(".right");
 var wrongAnswer = document.querySelector(".wrong");
 var scoreRight = document.querySelector(".best-score");
 var count = 30
+var scoreTrackerWins = 0;
+var scoreTrackerLose = 0;
+
+function finalScore () {
+    var endRatio = scoreTrackerWins / 5;
+    var displayPercent = endRatio * 100;
+    if(endRatio == Infinity) {
+        scoreRight.innerHTML = "100%"
+    } else {
+        scoreRight.innerHTML = displayPercent + "%";
+    }
+}
 
 // The countdown timer that runs
 function timer () {
@@ -74,10 +86,12 @@ function pageTwoSwitcher () {
             pageTwo.style.display = "none";
             pageThree.style.display = "block";
             count = count - 10;
+            scoreTrackerLose = scoreTrackerLose + 1;
         } else if (element.matches(".correct")) {
             correctDisplay()
             pageTwo.style.display = "none";
             pageThree.style.display = "block";
+            scoreTrackerWins = scoreTrackerWins + 1
         }
     })
 }
@@ -91,10 +105,12 @@ function pageThreeSwitcher () {
             pageThree.style.display = "none";
             pageFour.style.display = "block";
             count = count - 10;
+            scoreTrackerLose = scoreTrackerLose + 1;
         } else if (elementTwo.matches(".correct")){
             correctDisplay()
             pageThree.style.display = "none";
             pageFour.style.display = "block";
+            scoreTrackerWins = scoreTrackerWins + 1
         }
     })
 }
@@ -108,10 +124,12 @@ function pageFourSwitcher () {
             pageFour.style.display = "none";
             pageFive.style.display = "block";
             count = count - 10;
+            scoreTrackerLose = scoreTrackerLose + 1;
         } else if (elementThree.matches(".correct")){
             correctDisplay()
             pageFour.style.display = "none";
             pageFive.style.display = "block";
+            scoreTrackerWins = scoreTrackerWins + 1
         }
     })
 }
@@ -125,10 +143,12 @@ function pageFiveSwitcher () {
             pageFive.style.display = "none";
             pageSix.style.display = "block";
             count = count - 10;
+            scoreTrackerLose = scoreTrackerLose + 1;
         } else if (elementFour.matches(".correct")){
             correctDisplay()
             pageFive.style.display = "none";
             pageSix.style.display = "block";
+            scoreTrackerWins = scoreTrackerWins + 1
         }
     })
 }
@@ -142,10 +162,14 @@ function pageSixSwitcher () {
             pageSix.style.display = "none";
             pageSeven.style.display = "block";
             count = count - 10;
+            scoreTrackerLose = scoreTrackerLose + 1;
+            finalScore();
         } else if (elementFive.matches(".correct")){
             correctDisplay()
             pageSix.style.display = "none";
             pageSeven.style.display = "block";
+            scoreTrackerWins = scoreTrackerWins + 1
+            finalScore();
         }
     })
 }
