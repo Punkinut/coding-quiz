@@ -1,4 +1,5 @@
 var startButton = document.querySelector(".start-button");
+var resetButton = document.querySelector(".reset-button");
 var startPage = document.querySelector(".start-page");
 var pageTwo = document.querySelector(".page-two");
 var pageThree = document.querySelector(".page-three");
@@ -6,11 +7,12 @@ var pageFour = document.querySelector(".page-four");
 var pageFive = document.querySelector(".page-five");
 var pageSix = document.querySelector(".page-six");
 var pageSeven = document.querySelector(".page-seven");
+var pageEight = document.querySelector(".page-eight")
 var time = document.querySelector(".timer");
 var rightAnswer = document.querySelector(".right");
 var wrongAnswer = document.querySelector(".wrong");
 var scoreRight = document.querySelector(".best-score");
-var count = 60
+var count = 50
 var scoreTrackerWins = 0;
 var scoreTrackerLose = 0;
 var timeInterval;
@@ -40,6 +42,7 @@ function timer () {
             pageFive.style.display = "none";
             pageSix.style.display = "none";
             pageSeven.style.display = "none";
+            pageEight.style.display = "block";
         }
     }, 1000)
 }
@@ -177,6 +180,14 @@ function pageSixSwitcher () {
     })
 }
 
+function restartQuiz () {
+    resetButton.addEventListener("click", function() {
+        count = 30;
+        pageEight.style.display = "none";
+        startPage.style.display = "block";
+    })
+}
+
 // This is the main function that starts the quiz
 function startQuiz () {
     startButton.addEventListener("click", function() {
@@ -186,7 +197,9 @@ function startQuiz () {
         pageFourSwitcher();
         pageFiveSwitcher();
         pageSixSwitcher();
+        restartQuiz();
         timer();
     })
 }
+
 startQuiz();

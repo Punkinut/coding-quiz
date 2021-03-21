@@ -178,7 +178,45 @@ nav .highscores:active {
     margin-bottom: 10px;
 }
 
+.page-seven form {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.page-seven form input {
+    border: 2px solid rgba(0, 0, 0, 0.123);
+    font-weight: 300;
+    padding: 10px 30px;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto;
+}
+
 .page-seven p {
+    display: inline;
+    margin: 20px;
+}
+
+.page-eight {
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    display: none;
+}
+
+.page-eight button {
+    margin: 5px;
+}
+
+.page-eight h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.page-eight p {
     display: inline;
     margin: 20px;
 }
