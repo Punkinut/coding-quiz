@@ -225,13 +225,14 @@ function highScores () {
         pageEight.style.display = "none";
         clearInterval(timeInterval);
         pageNine.style.display = "block";
-        backButton.addEventListener("click", function() {
-            pageNine.style.display = "none"
-            startPage.style.display = "block";
-            count = 50;
-        })
     })
 }
+
+backButton.addEventListener("click", function() {
+    pageNine.style.display = "none"
+    startPage.style.display = "block";
+    count = 50;
+})
 
 function addToLeaderboard () {
     localStorage.setItem("Name", results);
