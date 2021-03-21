@@ -160,19 +160,46 @@ nav .highscores:active {
     margin-bottom: 20px;
 }
 
+.page-seven {
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    display: none;
+}
+
+.page-seven button {
+    margin: 5px;
+}
+
+.page-seven h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.page-seven p {
+    display: inline;
+    margin: 20px;
+}
+
 .right {
-    position: fixed;
-    left: 45%;
+    position: absolute;
     top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
     font-size: 30px;
     font-weight: 900;
     display: none;
 }
 
 .wrong {
-    position: fixed;
-    left: 45%;
+    position: absolute;
     top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
     font-size: 30px;
     font-weight: 900;
     display: none;

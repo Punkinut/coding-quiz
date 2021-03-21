@@ -1,26 +1,32 @@
-var startButton = document.querySelector(".start-button")
-var startPage = document.querySelector(".start-page")
-var pageTwo = document.querySelector(".page-two")
-var pageThree = document.querySelector(".page-three")
-var pageFour = document.querySelector(".page-four")
-var pageFive = document.querySelector(".page-five")
-var pageSix = document.querySelector(".page-six")
-var time = document.querySelector(".timer")
-var rightAnswer = document.querySelector(".right")
-var wrongAnswer = document.querySelector(".wrong")
-var count = 60
-varRightScore = 0;
-varWrongScore = 0;
+var startButton = document.querySelector(".start-button");
+var startPage = document.querySelector(".start-page");
+var pageTwo = document.querySelector(".page-two");
+var pageThree = document.querySelector(".page-three");
+var pageFour = document.querySelector(".page-four");
+var pageFive = document.querySelector(".page-five");
+var pageSix = document.querySelector(".page-six");
+var pageSeven = document.querySelector(".page-seven");
+var time = document.querySelector(".timer");
+var rightAnswer = document.querySelector(".right");
+var wrongAnswer = document.querySelector(".wrong");
+var scoreRight = document.querySelector(".best-score");
+var count = 30
 
 // The countdown timer that runs
 function timer () {
-    time.innerHTML = 60;
+    time.innerHTML = 30;
     var timeInterval = setInterval(function(){
         count--
         time.innerHTML = count
-        if(count === 0) {
+        if(count === 0 || count < 0) {
             clearInterval(timeInterval)
-            // Take to game over page
+            time.innerHTML = 0;
+            pageTwo.style.display = "none";
+            pageThree.style.display = "none";
+            pageFour.style.display = "none";
+            pageFive.style.display = "none";
+            pageSix.style.display = "none";
+            pageSeven.style.display = "block";
         }
     }, 1000)
 }
@@ -68,12 +74,10 @@ function pageTwoSwitcher () {
             pageTwo.style.display = "none";
             pageThree.style.display = "block";
             count = count - 10;
-            WrongScore = WrongScore + 1;
-        } else {
+        } else if (element.matches(".correct")) {
             correctDisplay()
             pageTwo.style.display = "none";
             pageThree.style.display = "block";
-            rightScore = rightScore + 1;
         }
     })
 }
@@ -87,12 +91,10 @@ function pageThreeSwitcher () {
             pageThree.style.display = "none";
             pageFour.style.display = "block";
             count = count - 10;
-            WrongScore = WrongScore + 1;
-        } else {
+        } else if (elementTwo.matches(".correct")){
             correctDisplay()
             pageThree.style.display = "none";
             pageFour.style.display = "block";
-            rightScore = rightScore + 1;
         }
     })
 }
@@ -106,12 +108,10 @@ function pageFourSwitcher () {
             pageFour.style.display = "none";
             pageFive.style.display = "block";
             count = count - 10;
-            WrongScore = WrongScore + 1;
-        } else {
+        } else if (elementThree.matches(".correct")){
             correctDisplay()
             pageFour.style.display = "none";
             pageFive.style.display = "block";
-            rightScore = rightScore + 1;
         }
     })
 }
@@ -125,12 +125,10 @@ function pageFiveSwitcher () {
             pageFive.style.display = "none";
             pageSix.style.display = "block";
             count = count - 10;
-            WrongScore = WrongScore + 1;
-        } else {
+        } else if (elementFour.matches(".correct")){
             correctDisplay()
             pageFive.style.display = "none";
             pageSix.style.display = "block";
-            rightScore = rightScore + 1;
         }
     })
 }
@@ -142,14 +140,12 @@ function pageSixSwitcher () {
         if(elementFive.matches(".incorrect")){
             incorrectDisplay()
             pageSix.style.display = "none";
-            // Display leader board function
+            pageSeven.style.display = "block";
             count = count - 10;
-            WrongScore = WrongScore + 1;
-        } else {
+        } else if (elementFive.matches(".correct")){
             correctDisplay()
             pageSix.style.display = "none";
-            // Display leader board function
-            rightScore = rightScore + 1;
+            pageSeven.style.display = "block";
         }
     })
 }
