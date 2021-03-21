@@ -13,6 +13,7 @@ var scoreRight = document.querySelector(".best-score");
 var count = 60
 var scoreTrackerWins = 0;
 var scoreTrackerLose = 0;
+var timeInterval;
 
 function finalScore () {
     var endRatio = scoreTrackerWins / 5;
@@ -27,7 +28,7 @@ function finalScore () {
 // The countdown timer that runs
 function timer () {
     time.innerHTML = count;
-    var timeInterval = setInterval(function(){
+    timeInterval = setInterval(function(){
         count--
         time.innerHTML = count
         if(count === 0 || count < 0) {
@@ -164,12 +165,14 @@ function pageSixSwitcher () {
             count = count - 10;
             scoreTrackerLose = scoreTrackerLose + 1;
             finalScore();
+            clearInterval(timeInterval)
         } else if (elementFive.matches(".correct")){
             correctDisplay()
             pageSix.style.display = "none";
             pageSeven.style.display = "block";
             scoreTrackerWins = scoreTrackerWins + 1
             finalScore();
+            clearInterval(timeInterval)
         }
     })
 }
