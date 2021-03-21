@@ -193,6 +193,17 @@ nav .highscores:active {
     margin: 20px auto;
 }
 
+.page-seven form input[type="submit"] {
+    cursor: pointer;
+    border: none;
+    transition: all 100ms ease-in-out;
+}
+
+.page-seven form input[type="submit"]:hover {
+    background-color: white;
+    box-shadow: 5px 5px var(--dark-gray);
+}
+
 .page-seven p {
     display: inline;
     margin: 20px;
@@ -219,6 +230,33 @@ nav .highscores:active {
 .page-eight p {
     display: inline;
     margin: 20px;
+}
+
+.page-nine {
+    width: 85%;
+    height: 500px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    display: none;
+}
+
+.page-nine button {
+    margin: 5px;
+}
+
+.page-nine h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.page-nine p {
+    display: block;
+    margin: 20px;
+    background-color: whitesmoke;
+    width: 100px;
+    margin: 20px auto;
+    padding: 10px;
 }
 
 .right {

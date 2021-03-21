@@ -8,14 +8,21 @@ var pageFive = document.querySelector(".page-five");
 var pageSix = document.querySelector(".page-six");
 var pageSeven = document.querySelector(".page-seven");
 var pageEight = document.querySelector(".page-eight")
+var pageNine = document.querySelector(".page-nine");
 var time = document.querySelector(".timer");
 var rightAnswer = document.querySelector(".right");
 var wrongAnswer = document.querySelector(".wrong");
 var scoreRight = document.querySelector(".best-score");
+var nameEl = document.querySelector("#name");
+var submitEl = document.querySelector("#submit");
+var highscoreClick = document.querySelector(".highscores");
+var backButton = document.querySelector(".go-back")
 var count = 50
 var scoreTrackerWins = 0;
 var scoreTrackerLose = 0;
 var timeInterval;
+var results;
+var yallPercentage;
 
 function finalScore () {
     var endRatio = scoreTrackerWins / 5;
@@ -23,7 +30,8 @@ function finalScore () {
     if(endRatio == Infinity) {
         scoreRight.innerHTML = "100%"
     } else {
-        scoreRight.innerHTML = displayPercent + "%";
+        yallPercentage = displayPercent + "%";
+        scoreRight.innerHTML = yallPercentage;
     }
 }
 
@@ -43,6 +51,7 @@ function timer () {
             pageSix.style.display = "none";
             pageSeven.style.display = "none";
             pageEight.style.display = "block";
+            restartQuiz();
         }
     }, 1000)
 }
@@ -182,10 +191,51 @@ function pageSixSwitcher () {
 
 function restartQuiz () {
     resetButton.addEventListener("click", function() {
-        count = 30;
+        count = 50;
         pageEight.style.display = "none";
         startPage.style.display = "block";
     })
+}
+
+function submitScore() {
+    submitEl.addEventListener("click", function(event) {
+        event.preventDefault();
+        if(nameEl.value === null || nameEl.value === "" || nameEl.value === undefined) {
+            window.alert("Please put in a name!")
+        } else {
+            results = nameEl.value;
+            console.log(results)
+            addToLeaderboard();
+            pageSeven.style.display = "none";
+            pageNine.style.display = "block";
+        }
+    })
+
+}
+
+function highScores () {
+    highscoreClick.addEventListener("click", function() {
+        startPage.style.display = "none";
+        pageTwo.style.display = "none";
+        pageThree.style.display = "none";
+        pageFour.style.display = "none";
+        pageFive.style.display = "none";
+        pageSix.style.display = "none";
+        pageSeven.style.display = "none";
+        pageEight.style.display = "none";
+        clearInterval(timeInterval);
+        pageNine.style.display = "block";
+        backButton.addEventListener("click", function() {
+            pageNine.style.display = "none"
+            startPage.style.display = "block";
+            count = 50;
+        })
+    })
+}
+
+function addToLeaderboard () {
+    localStorage.setItem("Name", results);
+    localStorage.setItem("Percentage", yallPercentage);
 }
 
 // This is the main function that starts the quiz
@@ -197,9 +247,10 @@ function startQuiz () {
         pageFourSwitcher();
         pageFiveSwitcher();
         pageSixSwitcher();
-        restartQuiz();
         timer();
+        submitScore();
     })
 }
 
 startQuiz();
+highScores();
