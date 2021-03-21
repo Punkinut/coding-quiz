@@ -92,103 +92,103 @@ function incorrectDisplay () {
 }
 
 // Page Two Switcher
-function pageTwoSwitcher () {
-    pageTwo.addEventListener("click", function(event) {
-        var element = event.target
-        if(element.matches(".incorrect")){
-            incorrectDisplay()
-            pageTwo.style.display = "none";
-            pageThree.style.display = "block";
-            count = count - 10;
-            scoreTrackerLose = scoreTrackerLose + 1;
-        } else if (element.matches(".correct")) {
-            correctDisplay()
-            pageTwo.style.display = "none";
-            pageThree.style.display = "block";
-            scoreTrackerWins = scoreTrackerWins + 1
-        }
-    })
-}
+
+pageTwo.addEventListener("click", function(event) {
+    var element = event.target
+    if(element.matches(".incorrect")){
+        incorrectDisplay()
+        pageTwo.style.display = "none";
+        pageThree.style.display = "block";
+        count = count - 10;
+        scoreTrackerLose = scoreTrackerLose + 1;
+    } else if (element.matches(".correct")) {
+        correctDisplay()
+        pageTwo.style.display = "none";
+        pageThree.style.display = "block";
+        scoreTrackerWins = scoreTrackerWins + 1
+    }
+})
+
 
 // Page Three Switcher
-function pageThreeSwitcher () {
-    pageThree.addEventListener("click", function(event) {
-        var elementTwo = event.target
-        if(elementTwo.matches(".incorrect")){
-            incorrectDisplay()
-            pageThree.style.display = "none";
-            pageFour.style.display = "block";
-            count = count - 10;
-            scoreTrackerLose = scoreTrackerLose + 1;
-        } else if (elementTwo.matches(".correct")){
-            correctDisplay()
-            pageThree.style.display = "none";
-            pageFour.style.display = "block";
-            scoreTrackerWins = scoreTrackerWins + 1
-        }
-    })
-}
+
+pageThree.addEventListener("click", function(event) {
+    var elementTwo = event.target
+    if(elementTwo.matches(".incorrect")){
+        incorrectDisplay()
+        pageThree.style.display = "none";
+        pageFour.style.display = "block";
+        count = count - 10;
+        scoreTrackerLose = scoreTrackerLose + 1;
+    } else if (elementTwo.matches(".correct")){
+        correctDisplay()
+        pageThree.style.display = "none";
+        pageFour.style.display = "block";
+        scoreTrackerWins = scoreTrackerWins + 1
+    }
+})
+
 
 // Page Four Switcher
-function pageFourSwitcher () {
-    pageFour.addEventListener("click", function(event) {
-        var elementThree = event.target
-        if(elementThree.matches(".incorrect")){
-            incorrectDisplay()
-            pageFour.style.display = "none";
-            pageFive.style.display = "block";
-            count = count - 10;
-            scoreTrackerLose = scoreTrackerLose + 1;
-        } else if (elementThree.matches(".correct")){
-            correctDisplay()
-            pageFour.style.display = "none";
-            pageFive.style.display = "block";
-            scoreTrackerWins = scoreTrackerWins + 1
-        }
-    })
-}
+
+pageFour.addEventListener("click", function(event) {
+    var elementThree = event.target
+    if(elementThree.matches(".incorrect")){
+        incorrectDisplay()
+        pageFour.style.display = "none";
+        pageFive.style.display = "block";
+        count = count - 10;
+        scoreTrackerLose = scoreTrackerLose + 1;
+    } else if (elementThree.matches(".correct")){
+        correctDisplay()
+        pageFour.style.display = "none";
+        pageFive.style.display = "block";
+        scoreTrackerWins = scoreTrackerWins + 1
+    }
+})
+
 
 // Page Five Switcher
-function pageFiveSwitcher () {
-    pageFive.addEventListener("click", function(event) {
-        var elementFour = event.target
-        if(elementFour.matches(".incorrect")){
-            incorrectDisplay()
-            pageFive.style.display = "none";
-            pageSix.style.display = "block";
-            count = count - 10;
-            scoreTrackerLose = scoreTrackerLose + 1;
-        } else if (elementFour.matches(".correct")){
-            correctDisplay()
-            pageFive.style.display = "none";
-            pageSix.style.display = "block";
-            scoreTrackerWins = scoreTrackerWins + 1
-        }
-    })
-}
+
+pageFive.addEventListener("click", function(event) {
+    var elementFour = event.target
+    if(elementFour.matches(".incorrect")){
+        incorrectDisplay()
+        pageFive.style.display = "none";
+        pageSix.style.display = "block";
+        count = count - 10;
+        scoreTrackerLose = scoreTrackerLose + 1;
+    } else if (elementFour.matches(".correct")){
+        correctDisplay()
+        pageFive.style.display = "none";
+        pageSix.style.display = "block";
+        scoreTrackerWins = scoreTrackerWins + 1
+    }
+})
+
 
 // Page Six Switcher
-function pageSixSwitcher () {
-    pageSix.addEventListener("click", function(event) {
-        var elementFive = event.target
-        if(elementFive.matches(".incorrect")){
-            incorrectDisplay()
-            pageSix.style.display = "none";
-            pageSeven.style.display = "block";
-            count = count - 10;
-            scoreTrackerLose = scoreTrackerLose + 1;
-            finalScore();
-            clearInterval(timeInterval)
-        } else if (elementFive.matches(".correct")){
-            correctDisplay()
-            pageSix.style.display = "none";
-            pageSeven.style.display = "block";
-            scoreTrackerWins = scoreTrackerWins + 1
-            finalScore();
-            clearInterval(timeInterval)
-        }
-    })
-}
+
+pageSix.addEventListener("click", function(event) {
+    var elementFive = event.target
+    if(elementFive.matches(".incorrect")){
+        incorrectDisplay()
+        pageSix.style.display = "none";
+        pageSeven.style.display = "block";
+        count = count - 10;
+        scoreTrackerLose = scoreTrackerLose + 1;
+        finalScore();
+        clearInterval(timeInterval)
+    } else if (elementFive.matches(".correct")){
+        correctDisplay()
+        pageSix.style.display = "none";
+        pageSeven.style.display = "block";
+        scoreTrackerWins = scoreTrackerWins + 1
+        finalScore();
+        clearInterval(timeInterval)
+    }
+})
+
 
 function restartQuiz () {
     resetButton.addEventListener("click", function() {
@@ -198,20 +198,19 @@ function restartQuiz () {
     })
 }
 
-function submitScore() {
-    submitEl.addEventListener("click", function(event) {
-        event.preventDefault();
-        if(nameEl.value === null || nameEl.value === "" || nameEl.value === undefined) {
-            window.alert("Please put in a name!")
-        } else {
-            results = nameEl.value;
-            addToLeaderboard();
-            pageSeven.style.display = "none";
-            pageNine.style.display = "block";
-        }
-    })
 
-}
+submitEl.addEventListener("click", function(event) {
+    event.preventDefault();
+    if(nameEl.value === null || nameEl.value === "" || nameEl.value === undefined) {
+        window.alert("Please put in a name!")
+    } else {
+        results = nameEl.value;
+        addToLeaderboard();
+        pageSeven.style.display = "none";
+        pageNine.style.display = "block";
+    }
+})
+
 
 function highScores () {
     highscoreClick.addEventListener("click", function() {
@@ -250,11 +249,6 @@ function addToLeaderboard () {
 function startQuiz () {
     startButton.addEventListener("click", function() {
         mainpageSwitcher();
-        pageTwoSwitcher();
-        pageThreeSwitcher();
-        pageFourSwitcher();
-        pageFiveSwitcher();
-        pageSixSwitcher();
         timer();
         submitScore();
     })
