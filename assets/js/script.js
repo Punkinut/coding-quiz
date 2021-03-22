@@ -19,6 +19,7 @@ var highscoreClick = document.querySelector(".highscores");
 var backButton = document.querySelector(".go-back")
 var containerOfScores = document.querySelector(".scoreContainer");
 var clearButton = document.querySelector(".clear-highscores")
+var clickAudio = new Audio("./assets/sound/click.mp3")
 var count = 50
 var scoreTrackerWins = 0;
 var scoreTrackerLose = 0;
@@ -28,6 +29,10 @@ var yallPercentage;
 var leaderBoardObject = [];
 
 
+clearButton.addEventListener("click", function() {
+    localStorage.removeItem("Leaderboard"); 
+    containerOfScores.innerHTML = "";
+})
 
 function finalScore () {
     var endRatio = scoreTrackerWins / 5;
@@ -65,6 +70,7 @@ function timer () {
 function mainpageSwitcher () {
     startPage.style.display = "none";
     pageTwo.style.display = "block";
+    clickAudio.play();
 }
 
 // The function that displays if the answer is correct
@@ -107,11 +113,13 @@ pageTwo.addEventListener("click", function(event) {
         pageThree.style.display = "block";
         count = count - 10;
         scoreTrackerLose = scoreTrackerLose + 1;
+        clickAudio.play();
     } else if (element.matches(".correct")) {
         correctDisplay()
         pageTwo.style.display = "none";
         pageThree.style.display = "block";
         scoreTrackerWins = scoreTrackerWins + 1
+        clickAudio.play();
     }
 })
 
@@ -126,11 +134,13 @@ pageThree.addEventListener("click", function(event) {
         pageFour.style.display = "block";
         count = count - 10;
         scoreTrackerLose = scoreTrackerLose + 1;
+        clickAudio.play();
     } else if (elementTwo.matches(".correct")){
         correctDisplay()
         pageThree.style.display = "none";
         pageFour.style.display = "block";
         scoreTrackerWins = scoreTrackerWins + 1
+        clickAudio.play();
     }
 })
 
@@ -145,11 +155,13 @@ pageFour.addEventListener("click", function(event) {
         pageFive.style.display = "block";
         count = count - 10;
         scoreTrackerLose = scoreTrackerLose + 1;
+        clickAudio.play();
     } else if (elementThree.matches(".correct")){
         correctDisplay()
         pageFour.style.display = "none";
         pageFive.style.display = "block";
         scoreTrackerWins = scoreTrackerWins + 1
+        clickAudio.play();
     }
 })
 
@@ -164,11 +176,13 @@ pageFive.addEventListener("click", function(event) {
         pageSix.style.display = "block";
         count = count - 10;
         scoreTrackerLose = scoreTrackerLose + 1;
+        clickAudio.play();
     } else if (elementFour.matches(".correct")){
         correctDisplay()
         pageFive.style.display = "none";
         pageSix.style.display = "block";
         scoreTrackerWins = scoreTrackerWins + 1
+        clickAudio.play();
     }
 })
 
@@ -185,6 +199,7 @@ pageSix.addEventListener("click", function(event) {
         scoreTrackerLose = scoreTrackerLose + 1;
         finalScore();
         clearInterval(timeInterval)
+        clickAudio.play();
     } else if (elementFive.matches(".correct")){
         correctDisplay()
         pageSix.style.display = "none";
@@ -192,6 +207,7 @@ pageSix.addEventListener("click", function(event) {
         scoreTrackerWins = scoreTrackerWins + 1
         finalScore();
         clearInterval(timeInterval)
+        clickAudio.play();
     }
 })
 
@@ -201,6 +217,7 @@ function restartQuiz () {
         count = 50;
         pageEight.style.display = "none";
         startPage.style.display = "block";
+        clickAudio.play();
     })
 }
 
@@ -220,6 +237,7 @@ submitEl.addEventListener("click", function(event) {
             var newItem = document.createElement("p")
             newItem.innerText = person.name + ": " + person.score;
             containerOfScores.appendChild(newItem);
+            clickAudio.play();
         })
     }
 })
@@ -237,6 +255,7 @@ function addToLeaderboard () {
 
 function highScores () {
     highscoreClick.addEventListener("click", function() {
+        clickAudio.play();
         startPage.style.display = "none";
         pageTwo.style.display = "none";
         pageThree.style.display = "none";
@@ -247,8 +266,8 @@ function highScores () {
         pageEight.style.display = "none";
         clearInterval(timeInterval);
         pageNine.style.display = "block";
-        var wholeScore = JSON.parse(localStorage.getItem("Leaderboard"));
         containerOfScores.innerHTML = "";
+        var wholeScore = JSON.parse(localStorage.getItem("Leaderboard"));
         if(wholeScore !== null) {
             wholeScore.forEach(function(person) {
                 var newItem = document.createElement("p")
@@ -266,6 +285,7 @@ backButton.addEventListener("click", function() {
     yallPercentage;
     scoreTrackerLose = 0;
     scoreTrackerWins = 0;
+    clickAudio.play();
 })
 
 // This is the main function that starts the quiz
