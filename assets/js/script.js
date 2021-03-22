@@ -20,6 +20,7 @@ var backButton = document.querySelector(".go-back")
 var containerOfScores = document.querySelector(".scoreContainer");
 var clearButton = document.querySelector(".clear-highscores")
 var clickAudio = new Audio("./assets/sound/click.mp3")
+var soundtrackAudio = new Audio("./assets/sound/game.mp3")
 var count = 50
 var scoreTrackerWins = 0;
 var scoreTrackerLose = 0;
@@ -292,6 +293,7 @@ backButton.addEventListener("click", function() {
 // This is the main function that starts the quiz
 function startQuiz () {
     startButton.addEventListener("click", function() {
+        soundtrackAudio.play();
         mainpageSwitcher();
         timer();
     })
