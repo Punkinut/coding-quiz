@@ -24,6 +24,9 @@ var scoreTrackerLose = 0;
 var timeInterval;
 var results;
 var yallPercentage;
+var leaderBoardObject = [];
+
+
 
 function finalScore () {
     var endRatio = scoreTrackerWins / 5;
@@ -76,6 +79,8 @@ function correctDisplay () {
         }
     }, 500)
 }
+
+
 
 // The function that displays when the answer is incorrect
 function incorrectDisplay () {
@@ -211,6 +216,16 @@ submitEl.addEventListener("click", function(event) {
     }
 })
 
+function addToLeaderboard () {
+    upObject = {
+        name: null,
+        score: null,
+    }
+    upObject.name = results;
+    upObject.score = yallPercentage;
+    leaderBoardObject.push(upObject);
+    localStorage.setItem("Leaderboard", JSON.stringify(leaderBoardObject));
+}
 
 function highScores () {
     highscoreClick.addEventListener("click", function() {
@@ -236,21 +251,11 @@ backButton.addEventListener("click", function() {
     scoreTrackerWins = 0;
 })
 
-function addToLeaderboard () {
-    localStorage.setItem("Name", results);
-    localStorage.setItem("Percentage", yallPercentage);
-    const newItem = document.createElement("p");
-    newItem.classList.add("nameRecord");
-    newItem.innerHTML = localStorage.getItem("Name") + ": " + localStorage.getItem("Percentage");
-    containerOfScores.appendChild(newItem);
-}
-
 // This is the main function that starts the quiz
 function startQuiz () {
     startButton.addEventListener("click", function() {
         mainpageSwitcher();
         timer();
-        submitScore();
     })
 }
 
