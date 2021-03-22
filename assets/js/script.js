@@ -30,8 +30,9 @@ var leaderBoardObject = [];
 
 
 clearButton.addEventListener("click", function() {
-    localStorage.removeItem("Leaderboard"); 
+    window.localStorage.clear();
     containerOfScores.innerHTML = "";
+    clickAudio.play();
 })
 
 function finalScore () {
