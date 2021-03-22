@@ -1,3 +1,4 @@
+// Below are all my global variables
 var startButton = document.querySelector(".start-button");
 var resetButton = document.querySelector(".reset-button");
 var startPage = document.querySelector(".start-page");
@@ -30,12 +31,14 @@ var yallPercentage;
 var leaderBoardObject = [];
 
 
+// This is my clear button
 clearButton.addEventListener("click", function() {
     window.localStorage.clear();
     containerOfScores.innerHTML = "";
     clickAudio.play();
 })
 
+// This is the function that calculates the final score
 function finalScore () {
     var endRatio = scoreTrackerWins / 5;
     var displayPercent = endRatio * 100;
@@ -106,7 +109,6 @@ function incorrectDisplay () {
 }
 
 // Page Two Switcher
-
 pageTwo.addEventListener("click", function(event) {
     var element = event.target
     if(element.matches(".incorrect")){
@@ -127,7 +129,6 @@ pageTwo.addEventListener("click", function(event) {
 
 
 // Page Three Switcher
-
 pageThree.addEventListener("click", function(event) {
     var elementTwo = event.target
     if(elementTwo.matches(".incorrect")){
@@ -148,7 +149,6 @@ pageThree.addEventListener("click", function(event) {
 
 
 // Page Four Switcher
-
 pageFour.addEventListener("click", function(event) {
     var elementThree = event.target
     if(elementThree.matches(".incorrect")){
@@ -169,7 +169,6 @@ pageFour.addEventListener("click", function(event) {
 
 
 // Page Five Switcher
-
 pageFive.addEventListener("click", function(event) {
     var elementFour = event.target
     if(elementFour.matches(".incorrect")){
@@ -190,7 +189,6 @@ pageFive.addEventListener("click", function(event) {
 
 
 // Page Six Switcher
-
 pageSix.addEventListener("click", function(event) {
     var elementFive = event.target
     if(elementFive.matches(".incorrect")){
@@ -214,6 +212,7 @@ pageSix.addEventListener("click", function(event) {
 })
 
 
+// When the timer runs out, this buttons presents itself
 function restartQuiz () {
     resetButton.addEventListener("click", function() {
         count = 50;
@@ -223,7 +222,7 @@ function restartQuiz () {
     })
 }
 
-
+// This is the events that follow when enetring your name
 submitEl.addEventListener("click", function(event) {
     event.preventDefault();
     if(nameEl.value === null || nameEl.value === "" || nameEl.value === undefined) {
@@ -244,6 +243,7 @@ submitEl.addEventListener("click", function(event) {
     }
 })
 
+// This is the function that collects your information
 function addToLeaderboard () {
     upObject = {
         name: null,
@@ -255,30 +255,30 @@ function addToLeaderboard () {
     localStorage.setItem("Leaderboard", JSON.stringify(leaderBoardObject));
 }
 
-function highScores () {
-    highscoreClick.addEventListener("click", function() {
-        clickAudio.play();
-        startPage.style.display = "none";
-        pageTwo.style.display = "none";
-        pageThree.style.display = "none";
-        pageFour.style.display = "none";
-        pageFive.style.display = "none";
-        pageSix.style.display = "none";
-        pageSeven.style.display = "none";
-        pageEight.style.display = "none";
-        clearInterval(timeInterval);
-        pageNine.style.display = "block";
-        containerOfScores.innerHTML = "";
-        var wholeScore = JSON.parse(localStorage.getItem("Leaderboard"));
-        if(wholeScore !== null) {
-            wholeScore.forEach(function(person) {
-                var newItem = document.createElement("p")
-                newItem.innerText = person.name + ": " + person.score;
-                containerOfScores.appendChild(newItem);
-            })
-        }
-    })
-}
+// This is run when you click on the highscores section
+
+highscoreClick.addEventListener("click", function() {
+    clickAudio.play();
+    startPage.style.display = "none";
+    pageTwo.style.display = "none";
+    pageThree.style.display = "none";
+    pageFour.style.display = "none";
+    pageFive.style.display = "none";
+    pageSix.style.display = "none";
+    pageSeven.style.display = "none";
+    pageEight.style.display = "none";
+    clearInterval(timeInterval);
+    pageNine.style.display = "block";
+    containerOfScores.innerHTML = "";
+    var wholeScore = JSON.parse(localStorage.getItem("Leaderboard"));
+    if(wholeScore !== null) {
+        wholeScore.forEach(function(person) {
+            var newItem = document.createElement("p")
+            newItem.innerText = person.name + ": " + person.score;
+            containerOfScores.appendChild(newItem);
+        })
+    }
+})
 
 backButton.addEventListener("click", function() {
     pageNine.style.display = "none"
@@ -300,4 +300,3 @@ function startQuiz () {
 }
 
 startQuiz();
-highScores();
