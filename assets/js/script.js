@@ -213,8 +213,12 @@ submitEl.addEventListener("click", function(event) {
         addToLeaderboard();
         pageSeven.style.display = "none";
         pageNine.style.display = "block";
-        var wholeScore = JSON.parse(localStorge.getItem("Leaderboard"));
-        console.log(wholeScore);
+        var wholeScore = JSON.parse(localStorage.getItem("Leaderboard"));
+        wholeScore.forEach(function(person) {
+            var newItem = document.createElement("p")
+            newItem.innerText = person.name + ": " + person.score;
+            containerOfScores.appendChild(newItem);
+        })
     }
 })
 
