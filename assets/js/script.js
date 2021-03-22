@@ -215,6 +215,7 @@ submitEl.addEventListener("click", function(event) {
         pageSeven.style.display = "none";
         pageNine.style.display = "block";
         var wholeScore = JSON.parse(localStorage.getItem("Leaderboard"));
+        containerOfScores.innerHTML = "";
         wholeScore.forEach(function(person) {
             var newItem = document.createElement("p")
             newItem.innerText = person.name + ": " + person.score;
