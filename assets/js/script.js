@@ -213,6 +213,8 @@ submitEl.addEventListener("click", function(event) {
         addToLeaderboard();
         pageSeven.style.display = "none";
         pageNine.style.display = "block";
+        var wholeScore = JSON.parse(localStorge.getItem("Leaderboard"));
+        console.log(wholeScore);
     }
 })
 
