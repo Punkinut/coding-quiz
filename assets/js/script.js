@@ -34,6 +34,7 @@ var leaderBoardObject = [];
 // This is my clear button
 clearButton.addEventListener("click", function() {
     window.localStorage.clear();
+    location.reload();
     containerOfScores.innerHTML = "";
     clickAudio.play();
 })
@@ -232,7 +233,7 @@ submitEl.addEventListener("click", function(event) {
         addToLeaderboard();
         pageSeven.style.display = "none";
         pageNine.style.display = "block";
-        var wholeScore = JSON.parse(localStorage.getItem("Leaderboard"));
+        var wholeScore = JSON.parse(localStorage.getItem("Leaderboard")) || [];
         containerOfScores.innerHTML = "";
         wholeScore.forEach(function(person) {
             var newItem = document.createElement("p")
@@ -270,7 +271,7 @@ highscoreClick.addEventListener("click", function() {
     clearInterval(timeInterval);
     pageNine.style.display = "block";
     containerOfScores.innerHTML = "";
-    var wholeScore = JSON.parse(localStorage.getItem("Leaderboard"));
+    var wholeScore = JSON.parse(localStorage.getItem("Leaderboard")) || [];
     if(wholeScore !== null) {
         wholeScore.forEach(function(person) {
             var newItem = document.createElement("p")
