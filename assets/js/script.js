@@ -18,6 +18,7 @@ var submitEl = document.querySelector("#submit");
 var highscoreClick = document.querySelector(".highscores");
 var backButton = document.querySelector(".go-back")
 var containerOfScores = document.querySelector(".scoreContainer");
+var clearButton = document.querySelector(".clear-highscores")
 var count = 50
 var scoreTrackerWins = 0;
 var scoreTrackerLose = 0;
