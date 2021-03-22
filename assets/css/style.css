@@ -280,3 +280,13 @@ nav .highscores:active {
     font-weight: 900;
     display: none;
 }
+
+@media screen and (max-width: 350px) {
+    .right {
+        top: 85%;
+    }
+
+    .wrong {
+        top: 85%;
+    }
+}
